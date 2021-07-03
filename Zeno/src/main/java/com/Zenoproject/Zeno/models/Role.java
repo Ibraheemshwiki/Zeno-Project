@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,7 +22,7 @@ import javax.validation.constraints.Size;
 public class Role {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
 	@NotEmpty(message = "You must enter your role")
 	@Size(min = 2, max = 40, message = "Your role must be between 2 and 40 characters")
@@ -89,7 +88,5 @@ public class Role {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
-	
-	
+
 }

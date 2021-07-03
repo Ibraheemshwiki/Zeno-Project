@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -17,29 +16,18 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private Long id;
-	@NotEmpty(message = "You must enter your name")
-	@Size(min = 2, max = 40, message = "Your name must be between 2 and 40 characters")
-	private String name;
-	@NotEmpty(message = "You must enter your email")
-	@Email(message = "Email must be valid")
+	private String username;
 	private String email;
-	@Size(min = 8, message = "Password must be at least 8 characters")
 	private String password;
 	@Transient
 	private String cpassword;
-
-	@NotEmpty(message = "You must enter your phone number")
-	@Size(min = 8, message = "Your phone number must be more than 8 digit")
 	private String phone_number;
 
 	@Column(updatable = false)
@@ -81,13 +69,6 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getEmail() {
 		return email;
@@ -95,6 +76,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -168,7 +157,5 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
-	
+
 }

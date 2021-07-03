@@ -14,6 +14,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -36,12 +38,13 @@ public class Order {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private User userId;
+	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cart_id")
-	private Cart cartId;
+	private Cart cart;
 
+	@Autowired
 	public Order() {
 	}
 
@@ -69,22 +72,20 @@ public class Order {
 		this.updatedAt = updatedAt;
 	}
 
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Cart getCartId() {
-		return cartId;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setCartId(Cart cartId) {
-		this.cartId = cartId;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
-	
-	
-	
+
 }
