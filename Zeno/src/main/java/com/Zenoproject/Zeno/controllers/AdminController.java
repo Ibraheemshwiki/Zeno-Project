@@ -6,11 +6,11 @@ import com.Zenoproject.Zeno.services.AdminService;
 import com.Zenoproject.Zeno.services.UserService;
 
 @Controller
-public class UserController {
+public class AdminController {
 	private final UserService userService;
 	private final AdminService adminService;
 
-	public UserController(AdminService adminService, UserService userService) {
+	public AdminController(AdminService adminService, UserService userService) {
 		this.userService = userService;
 		this.adminService = adminService;
 	}
