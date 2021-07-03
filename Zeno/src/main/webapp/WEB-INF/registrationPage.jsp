@@ -20,7 +20,7 @@
 		</p>
 		<p>
 			<form:label path="email">Email:</form:label>
-			<form:input path="email" />
+			<form:input type = "email" path="email" />
 		</p>
 		<p>
 			<form:label path="password">Password:</form:label>

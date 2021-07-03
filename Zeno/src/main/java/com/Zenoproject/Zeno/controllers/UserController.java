@@ -16,15 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.Zenoproject.Zeno.models.User;
 import com.Zenoproject.Zeno.services.AdminService;
 import com.Zenoproject.Zeno.services.UserService;
+import com.Zenoproject.Zeno.validator.UserValidator;
 
 @Controller
 public class UserController {
 	private final UserService userService;
 	private final AdminService adminService;
+	private UserValidator userValidator;
 
-	public UserController(AdminService adminService, UserService userService) {
+	public UserController(AdminService adminService, UserService userService, UserValidator userValidator) {
 		this.userService = userService;
 		this.adminService = adminService;
+		this.userValidator = userValidator;
 	}
 
 	@RequestMapping("/registration")
@@ -35,10 +38,11 @@ public class UserController {
 	@PostMapping("/registration")
 	public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
 			HttpSession session) {
+		userValidator.validate(user, result);
 		if (result.hasErrors()) {
 			return "registrationPage.jsp";
 		}
-		userService.saveWithUserRole(user);
+		userService.saveUserWithAdminRole(user);
 		return "redirect:/login";
 
 	}
@@ -55,6 +59,13 @@ public class UserController {
 		return "loginPage.jsp";
 	}
 
+	@RequestMapping("/admin")
+    public String adminPage(Principal principal, Model model) {
+        String username = principal.getName();
+        model.addAttribute("currentUser", userService.findByUsername(username));
+        return "adminPage.jsp";
+    }
+	
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Principal principal, Model model) {
 		String username = principal.getName();

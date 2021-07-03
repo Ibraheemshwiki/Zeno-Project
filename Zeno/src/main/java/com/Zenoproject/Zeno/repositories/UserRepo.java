@@ -7,5 +7,6 @@ import com.Zenoproject.Zeno.models.User;
 
 @Repository
 public interface UserRepo extends CrudRepository<User, Long> {
+	
 	User findByUsername(String username);
 }
