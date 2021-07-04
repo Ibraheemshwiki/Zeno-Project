@@ -1,39 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
   <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous" /> 
 	 <link href="css/templatemo-business-oriented.css" rel="stylesheet" />
 <!DOCTYPE html>
+
 <html>
 <head>
-
 <meta charset="ISO-8859-1">
-<title>Home Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-    <div id="parallax-1" class="parallax-window" data-parallax="scroll" style="background-image: url('images/zeno (2).jpg'); min-height: 523.48px;">
-   
-        <div class="container-fluid">
-        
-            <div class="row">
-           
-                <div class="col-12">
-            
-                    <div class="tm-logo">
-                    
-                        <i class="fas fa-industry fa-5x mr-5"></i>
-                        
-                        <span class="text-uppercase tm-logo-text">ZENO </span>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<h1>  MAKEUP </h1>
+
 	<div class="tm-nav-container-outer">
 	      <form id="logoutForm" method="POST" action="/logout">
 		<input type="hidden" name="${_csrf.parameterName}"
@@ -69,9 +51,5 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 </body>
 </html>

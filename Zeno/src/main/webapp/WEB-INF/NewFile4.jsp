@@ -41,7 +41,6 @@
 	</c:forEach>
 	<c:forEach items = "${cartInfo}" var = "item">
 <p><c:out value="${item.name}"></c:out></p>
-<p><c:out value="${item.quantity}"></c:out></p>
 </c:forEach>
 
 </body>
