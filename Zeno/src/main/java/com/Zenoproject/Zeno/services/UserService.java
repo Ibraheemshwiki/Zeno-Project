@@ -1,8 +1,11 @@
 package com.Zenoproject.Zeno.services;
 
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.Zenoproject.Zeno.models.Item;
 import com.Zenoproject.Zeno.models.User;
 import com.Zenoproject.Zeno.repositories.CartRepo;
 import com.Zenoproject.Zeno.repositories.CategoryRepo;
@@ -47,4 +50,18 @@ public class UserService {
 	public User findByUsername(String username) {
 		return userRepo.findByUsername(username);
 	}
-}
+	
+	public List<Item> allItems(){
+		return itemRepo.findAll();
+	}
+	
+	public List<Item> findItemsByCategoryId(Long id){
+		return itemRepo.findByCategoryId(id);
+	}
+	
+	public Item findItemByid(Long id) {
+		Item item = itemRepo.findById(id).orElse(null);
+		return item;
+	}
+	
+ }

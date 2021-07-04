@@ -44,9 +44,8 @@ public class Cart {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "item_id")
-	private Item item;
+	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
+	private List<Item> items;
 
 	public Cart() {
 	}
@@ -91,12 +90,16 @@ public class Cart {
 		this.user = user;
 	}
 
-	public Item getItem() {
-		return item;
+	public List<Item> getItems() {
+		return items;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setItems(List<Item> items) {
+		this.items = items;
 	}
+	
+
+	
+
 
 }

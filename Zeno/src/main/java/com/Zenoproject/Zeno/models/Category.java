@@ -20,6 +20,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String name;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -70,6 +71,14 @@ public class Category {
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

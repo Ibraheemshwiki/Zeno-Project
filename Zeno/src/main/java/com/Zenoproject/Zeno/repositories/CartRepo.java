@@ -7,5 +7,5 @@ import com.Zenoproject.Zeno.models.Cart;
 
 @Repository
 public interface CartRepo extends CrudRepository<Cart, Long> {
-
+	
 }
