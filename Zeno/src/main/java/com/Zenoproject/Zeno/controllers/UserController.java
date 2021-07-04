@@ -30,6 +30,7 @@ public class UserController {
 	private UserValidator userValidator;
 	private List<Item> newList = new ArrayList<>();
 	private Cart newCart = new Cart();
+	private double total = 0;
 	
 	public UserController(AdminService adminService, UserService userService, UserValidator userValidator) {
 		this.userService = userService;
@@ -81,26 +82,27 @@ public class UserController {
 		return "homePage.jsp";
 	}
 	
-	@RequestMapping("/items")
+	@RequestMapping("/homeaccessories")
 	public String items(Model model, HttpSession session) {
 		List<Item> allItems = userService.allItems();
 		model.addAttribute("items", allItems);
 		model.addAttribute("cartSize", newList.size());
 		
 		model.addAttribute("cartInfo", newCart.getItems());
-		return "NewFile4.jsp";
+		return "homeaccessories.jsp";
 	}
 	
-	@RequestMapping("/add/{id}/{n}")
-	public String addToCart(@PathVariable("id")Long id, Model model, HttpSession session, @RequestParam("numOfItem") int numOfItem) {
+	@RequestMapping("/add/{id}")
+	public String addToCart(@PathVariable("id")Long id, Model model, HttpSession session) {
 		Item item = userService.findItemByid(id);
 		User user = (User) session.getAttribute("user");
+		total += item.getPrice();
 		newList.add(item);
 		newCart.setItems(newList);
 		newCart.setUser(user);
 		
 		
-		return "redirect:/items"; 
+		return "redirect:/homeaccessories"; 
 		
 	}
 	
@@ -123,10 +125,6 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping("/homeaccessories")
-	public String homeaccessories() {
-		return "homeaccessories.jsp";
-	}
 	
 	@RequestMapping("/makeup")
 	public String makeup() {
@@ -134,7 +132,22 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping("/cart")
+	public String cart(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("thisUser", user);
+		model.addAttribute("total", total);
+		model.addAttribute("cartInfo", newCart.getItems());
+		return "cartPage.jsp";
+	}
 	
+	@RequestMapping("/delete/{id}")
+	public String deleteFromCart(@PathVariable("id") Long id) {
+		Item item = userService.findItemByid(id);
+		newList.remove(id);
+		newCart.setItems(newList);
+		return "redirect:/cart";
+	}
 	
 	
 }

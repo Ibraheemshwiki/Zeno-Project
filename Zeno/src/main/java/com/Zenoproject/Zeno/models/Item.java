@@ -28,7 +28,7 @@ public class Item {
 	@Min(1)
 	private Integer quantity;
 	@Min(1)
-	private Integer price;
+	private double price;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -121,11 +121,11 @@ public class Item {
 		this.quantity = quantity;
 	}
 
-	public Integer getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	

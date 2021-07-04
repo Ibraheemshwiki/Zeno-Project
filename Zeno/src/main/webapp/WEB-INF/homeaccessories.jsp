@@ -6,6 +6,8 @@
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous" /> 
 	 <link href="css/templatemo-business-oriented.css" rel="stylesheet" />
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -51,5 +53,37 @@
 			</div>
 		</div>
 	</div>
+	<a href = "/cart">Go to Cart</a>
+	<p>
+		Cart(
+		<c:out value="${cartSize}" />
+		)
+	</p>
+	<c:forEach items="${items}" var="item">
+		<p>
+			<c:out value="${item.name}" />
+		</p>
+		<p>
+			<c:out value="${item.price}" />
+			$
+		</p>
+
+		<c:choose>
+			<c:when test="${item.quantity > 0}">
+				<form action="/add/${item.id}">
+					<input type="submit" value="Add to Cart" /> <br />
+			</form>
+			</c:when>
+			<c:otherwise>
+				<p>This item is out of stock.</p>
+				<br />
+			</c:otherwise>
+		</c:choose>
+
+
+
+	</c:forEach>
+	
+	
 </body>
 </html>
