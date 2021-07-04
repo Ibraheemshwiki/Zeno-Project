@@ -72,4 +72,36 @@ public class UserController {
 		model.addAttribute("currentUser", userService.findByUsername(username));
 		return "homePage.jsp";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+	return "redirect:/registration";
+	}
+	
+	@RequestMapping("/main")
+	public String main() {
+		return "homePage.jsp";
+	}
+	
+	@RequestMapping("/accessories")
+	public String accessories() {
+		return "accessories.jsp";
+	}
+	
+	
+	@RequestMapping("/homeaccessories")
+	public String homeaccessories() {
+		return "homeaccessories.jsp";
+	}
+	
+	@RequestMapping("/makeup")
+	public String makeup() {
+		return "makeup.jsp";
+	}
+	
+	
+	
+	
+	
 }
