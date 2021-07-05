@@ -20,7 +20,8 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	private int quantity = 0;
+	private boolean ordered = false;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -85,6 +86,14 @@ public class Cart {
 
 	public void setItem(Item item) {
 		this.item = item;
+	}
+
+	public boolean isOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(boolean ordered) {
+		this.ordered = ordered;
 	}
 
 	

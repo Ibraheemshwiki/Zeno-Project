@@ -50,16 +50,16 @@ public class User {
 		this.updatedAt = new Date();
 	}
 	@ManyToMany(fetch = FetchType.LAZY)
-
 	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	private List<Item> items;
 
 
 	@ManyToMany(fetch = FetchType.EAGER)
-
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
+	
+	
 	public User() {
 	}
 
@@ -151,7 +151,9 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
+
+	public void addItem(Item item) {
+		this.items.add(item);
+	}
 
 }

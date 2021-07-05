@@ -56,7 +56,7 @@
 	<a href = "/cart">Go to Cart</a>
 	<p>
 		Cart(
-		<c:out value="${cartSize}" />
+		<c:out value="${itemstest}" />
 		)
 	</p>
 	<c:forEach items="${items}" var="item">
