@@ -31,7 +31,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/registration")
-	public String registerForm(@Valid @ModelAttribute("user") User user) {
+	public String registerForm(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		return "registrationPage.jsp";
 	}
 
