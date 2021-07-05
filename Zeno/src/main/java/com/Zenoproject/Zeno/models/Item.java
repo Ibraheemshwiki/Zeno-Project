@@ -46,7 +46,7 @@ public class Item {
 		this.updatedAt = new Date();
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 
 	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;

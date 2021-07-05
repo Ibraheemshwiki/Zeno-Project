@@ -133,6 +133,7 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("thisUser", user);
 		model.addAttribute("total", total);
+		model.addAttribute("products", newList);
 		return "cartPage.jsp";
 	}
 	

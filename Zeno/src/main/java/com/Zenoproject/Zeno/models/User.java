@@ -49,7 +49,7 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 
 	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	private List<Item> items;
