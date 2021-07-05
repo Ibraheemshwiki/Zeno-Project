@@ -49,7 +49,7 @@
 			<div class="wrap-login100">
 				<form:form class="login100-form validate-form" method="post" action="/registration" modelAttribute="user">
 					<span class="login100-form-title p-b-34"> Account
-						Registration </span>
+						Registrations </span>
 					
 
 						<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20"
