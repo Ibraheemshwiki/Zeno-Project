@@ -20,11 +20,11 @@
 		</p>
 		<p>
 			<form:label path="email">Email:</form:label>
-			<form:input type = "email" path="email" />
+			<form:input type="email" path="email" />
 		</p>
 		<p>
 			<form:label path="password">Password:</form:label>
-			<form:password path="password"/>
+			<form:password path="password" />
 		</p>
 		<p>
 			<form:label path="cpassword">Password Confirmation:</form:label>
@@ -33,6 +33,10 @@
 		<p>
 			<form:label path="phone_number">Phone Number:</form:label>
 			<form:input path="phone_number" />
+		</p>
+		<p>
+			<form:label path="address">Address:</form:label>
+			<form:input path="address" />
 		</p>
 		<input type="submit" value="Register!" />
 	</form:form>

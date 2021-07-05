@@ -34,7 +34,8 @@ public class User {
 	private String cpassword;
 	@Size(min=10, max=10)
 	private String phone_number;
-
+	private String address;
+	
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -141,6 +142,14 @@ public class User {
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 	
