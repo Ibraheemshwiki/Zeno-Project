@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -49,15 +48,11 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+	@ManyToMany(fetch = FetchType.EAGER)
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	private List<Item> items;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Cart> carts;
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Order> orders;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 
@@ -140,22 +135,6 @@ public class User {
 		this.items = items;
 	}
 
-	public List<Cart> getCarts() {
-		return carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
-	}
-
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
 	public List<Role> getRoles() {
 		return roles;
 	}
@@ -163,5 +142,7 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
+	
+	
 
 }

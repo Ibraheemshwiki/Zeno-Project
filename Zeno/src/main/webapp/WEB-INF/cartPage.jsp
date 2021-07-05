@@ -13,14 +13,6 @@
 
 
 	<h2>Hi, <c:out value="${thisUser.username}"></c:out></h2>
-	
-	<c:forEach items = "${cartInfo}" var = "item">
-<p><c:out value="${item.name}"></c:out></p>
-<p><c:out value="${item.price}"></c:out></p>
-
-
-<a href = "/delete/${item.id}">Delete this item</a>
-</c:forEach>
 <br>
 <p>Your Total is: <c:out value="${total}"></c:out> NIS</p>
 </body>

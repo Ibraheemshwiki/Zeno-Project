@@ -1,7 +1,6 @@
 package com.Zenoproject.Zeno.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -37,15 +35,14 @@ public class Cart {
 		this.updatedAt = new Date();
 	}
 
-	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
-	private List<Order> orders;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "item_id")
+	private Item item;
 
-	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
-	private List<Item> items;
 
 	public Cart() {
 	}
@@ -74,14 +71,6 @@ public class Cart {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -90,13 +79,14 @@ public class Cart {
 		this.user = user;
 	}
 
-	public List<Item> getItems() {
-		return items;
+	public Item getItem() {
+		return item;
 	}
 
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItem(Item item) {
+		this.item = item;
 	}
+
 	
 
 	

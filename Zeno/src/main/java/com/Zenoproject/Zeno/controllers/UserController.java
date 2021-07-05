@@ -29,7 +29,6 @@ public class UserController {
 	private final AdminService adminService;
 	private UserValidator userValidator;
 	private List<Item> newList = new ArrayList<>();
-	private Cart newCart = new Cart();
 	private double total = 0;
 	
 	public UserController(AdminService adminService, UserService userService, UserValidator userValidator) {
@@ -88,7 +87,6 @@ public class UserController {
 		model.addAttribute("items", allItems);
 		model.addAttribute("cartSize", newList.size());
 		
-		model.addAttribute("cartInfo", newCart.getItems());
 		return "homeaccessories.jsp";
 	}
 	
@@ -98,8 +96,6 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		total += item.getPrice();
 		newList.add(item);
-		newCart.setItems(newList);
-		newCart.setUser(user);
 		
 		
 		return "redirect:/homeaccessories"; 
@@ -137,7 +133,6 @@ public class UserController {
 		User user = (User) session.getAttribute("user");
 		model.addAttribute("thisUser", user);
 		model.addAttribute("total", total);
-		model.addAttribute("cartInfo", newCart.getItems());
 		return "cartPage.jsp";
 	}
 	
@@ -145,7 +140,6 @@ public class UserController {
 	public String deleteFromCart(@PathVariable("id") Long id) {
 		Item item = userService.findItemByid(id);
 		newList.remove(id);
-		newCart.setItems(newList);
 		return "redirect:/cart";
 	}
 	

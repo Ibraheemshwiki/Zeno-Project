@@ -1,6 +1,7 @@
 package com.Zenoproject.Zeno.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -43,17 +46,15 @@ public class Item {
 		this.updatedAt = new Date();
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	private User user;
+	@ManyToMany(fetch = FetchType.EAGER)
+
+	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "item_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private List<User> users;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cart_id")
-	private Cart cart;
 
 	public Item() {
 	}
@@ -82,14 +83,6 @@ public class Item {
 		this.updatedAt = updatedAt;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public Category getCategory() {
 		return category;
 	}
@@ -98,13 +91,6 @@ public class Item {
 		this.category = category;
 	}
 
-	public Cart getCart() {
-		return cart;
-	}
-
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
 	public String getName() {
 		return name;
 	}
@@ -127,6 +113,14 @@ public class Item {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	
 	
