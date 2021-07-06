@@ -45,11 +45,11 @@ https://templatemo.com/tm-549-business-oriented
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav ml-auto">
 
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="/orders">Orders</a>
+                                <li class="nav-item active">
+                                    <a class="nav-link tm-nav-link" href="/admin/page">Orders</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href=/additem>Add Item</a>
+                                    <a class="nav-link tm-nav-link" href="">Add Item</a>
                                 </li>
                              
                             </ul>                            

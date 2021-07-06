@@ -83,14 +83,30 @@ public class UserController {
 	
 	@RequestMapping("/homeaccessories")
 	public String items(Principal principal,Model model) {
-		List<Item> allItems = userService.allItems();
+		String username = principal.getName();
+		int i = 1;
+		Long id = Long.valueOf(i);
+		List<Item> allItems = userService.findItemsByCategoryId(id);
+		model.addAttribute("items", allItems);
+		User u = userService.findByUsername(username);
+		List<Cart> allCarts = userService.getCartByUserAndOrdered(u.getId(), false);
+		model.addAttribute("cartSize", allCarts.size());
+		
+		return "homeaccessories.jsp";
+	}
+	
+	@RequestMapping("/accessories")
+	public String accessoriesItems(Principal principal,Model model) {
+		int i = 2;
+		Long id = Long.valueOf(i);
+		List<Item> allItems = userService.findItemsByCategoryId(id);
 		model.addAttribute("items", allItems);
 		String username = principal.getName();
 		User u = userService.findByUsername(username);
 		List<Cart> allCarts = userService.getCartByUserAndOrdered(u.getId(), false);
 		model.addAttribute("cartSize", allCarts.size());
 		
-		return "homeaccessories.jsp";
+		return "accessories.jsp";
 	}
 	
 	@RequestMapping("/add/{id}")
@@ -118,15 +134,19 @@ public class UserController {
 		return "homePage.jsp";
 	}
 	
-	@RequestMapping("/accessories")
-	public String accessories() {
-		return "accessories.jsp";
-	}
-	
 	
 	
 	@RequestMapping("/makeup")
-	public String makeup() {
+	public String makeup(Principal principal,Model model) {
+		int i = 3;
+		Long id = Long.valueOf(i);
+		List<Item> allItems = userService.findItemsByCategoryId(id);
+		model.addAttribute("items", allItems);
+		String username = principal.getName();
+		User u = userService.findByUsername(username);
+		List<Cart> allCarts = userService.getCartByUserAndOrdered(u.getId(), false);
+		model.addAttribute("cartSize", allCarts.size());
+		
 		return "makeup.jsp";
 	}
 	

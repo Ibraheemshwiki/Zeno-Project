@@ -79,6 +79,9 @@
 		</div>
 	</div>
 	<footer class="container-fluid">
+	<form action="/confirm">
+		<input type="submit" value="Confirm Order" />
+	</form>
 		<div class="row">
 			<p class="col-lg-9 col-md-8 mb-5 mb-md-0">
 				Copyright &copy; 2021 <span class="tm-text-primary">AXSOS
@@ -98,26 +101,5 @@
 		</div>
 	</footer>
 
-
-	<h2>
-		Hi,
-		<c:out value="${thisUser.username}"></c:out>
-	</h2>
-	<c:forEach items="${carts}" var="cart">
-		<p>${cart.item.name}</p>
-		<p>${cart.item.price}NIS</p>
-		<p>Quantity: ${cart.quantity}</p>
-		<a href="/delete/${cart.id}">Delete This Item</a>
-	</c:forEach>
-	<br>
-	<p>
-		Your Total is:
-		<c:out value="${total}"></c:out>
-		NIS
-	</p>
-
-	<form action="/confirm">
-		<input type="submit" value="Confirm Order" />
-	</form>
 </body>
 </html>
