@@ -16,7 +16,7 @@
     <link href="/css/templatemo-business-oriented.css" rel="stylesheet" />
 </head>
 <body>
-<h1> Orders </h1>
+<img alt="" src="/images/logo.jpg" style="width:100px; height: 100px"><h1> Orders </h1>
  <div class="tm-nav-container-outer">
          <form id="logoutForm" method="POST" action="/logout">
 		<input type="hidden" name="${_csrf.parameterName}"
@@ -32,9 +32,7 @@
                         </button>
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link tm-nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
+                              
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="/orders">Orders</a>
                                 </li>

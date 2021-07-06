@@ -16,7 +16,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Home Accessories</h1>
+		<div style="display: flex ; ">
+	<img alt="" src="/images/logo.jpg" style="width:100px; height: 100px"> <div style=" 
+    margin-top: 20px;
+    margin-left: 600px;"> <h1 style="font-size:80px; font-family:fontawesome-webfont "> ZENO</h1></div>
+ 	</div>
+
 
 	<div class="tm-nav-container-outer">
 	      <form id="logoutForm" method="POST" action="/logout">
@@ -53,6 +58,8 @@
 			</div>
 		</div>
 	</div>
+		<div class="tm-bg-gray tm-box">
+			<div class="text-center mb-3">
 	<a href = "/cart">Go to Cart</a>
 	<p>
 		Cart(
@@ -85,6 +92,27 @@
 
 	</c:forEach>
 	
+	</div>
+	</div>
+	<footer class="container-fluid">
+        <div class="row">
+            <p class="col-lg-9 col-md-8 mb-5 mb-md-0">
+                Copyright &copy; 2021 <span class="tm-text-primary">AXSOS ACADEMY</span>
+                - designed by  <span class="tm-text-primary">ZENO TEAM</span>
+            </p>
+            <div class="col-lg-3 col-md-4 text-right">
+                <a rel="nofollow" target="_blank" href="https://www.facebook.com/zenoramallah" class="tm-social-link">
+                    <i class="fab fa-facebook fa-2x tm-social-icon"></i>
+                </a>
+                <a href="https://twitter.com" class="tm-social-link">
+                    <i class="fab fa-twitter fa-2x tm-social-icon"></i>
+                </a>
+                <a href="https://linkedin.com" class="tm-social-link">
+                    <i class="fab fa-linkedin fa-2x tm-social-icon"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 	
 </body>
 </html>

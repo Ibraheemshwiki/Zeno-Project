@@ -23,6 +23,11 @@ https://templatemo.com/tm-549-business-oriented
 
 -->
 <body>
+		<div style="display: flex ; ">
+	<img alt="" src="/images/logo.jpg" style="width:100px; height: 100px"> <div style=" 
+    margin-top: 20px;
+    margin-left: 600px;"> <h1 style="font-size:80px; font-family:fontawesome-webfont "> ZENO</h1></div>
+ 	</div>
    
     <div class="tm-nav-container-outer">
          <form id="logoutForm" method="POST" action="/logout">
@@ -39,9 +44,7 @@ https://templatemo.com/tm-549-business-oriented
                         </button>
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link tm-nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="/orders">Orders</a>
                                 </li>
@@ -60,6 +63,8 @@ https://templatemo.com/tm-549-business-oriented
    
         <!-- Services -->
         <div class="row mb-7">
+        
+        
             <div class="col-lg-4 col-md-6">
                 <div class="tm-bg-gray tm-box">
                     <div class="text-center mb-3">
@@ -68,22 +73,7 @@ https://templatemo.com/tm-549-business-oriented
                     <h4 class="tm-text-primary tm-h3 mb-5">Order</h4>
                    </div>
             </div>
-             <div class="col-lg-4 col-md-6">
-                <div class="tm-bg-gray tm-box">
-                    <div class="text-center mb-3">
-                        <img alt="" src="images/zeno19.jpg" style="width:280px; border-radius: 18px">
-                    </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Order</h4>
-                   </div>
-            </div>
-             <div class="col-lg-4 col-md-6">
-                <div class="tm-bg-gray tm-box">
-                    <div class="text-center mb-3">
-                        <img alt="" src="images/zeno19.jpg" style="width:280px; border-radius: 18px">
-                    </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Order</h4>
-                   </div>
-            </div>
+           
             
         </div>
  
