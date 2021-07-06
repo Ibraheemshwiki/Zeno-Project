@@ -127,6 +127,16 @@ public class UserController {
 		return "makeup.jsp";
 	}
 	
+	@RequestMapping("/admin/page")
+	public String admin() {
+		return "admin.jsp";
+	}
+	
+	@RequestMapping("/orders")
+	public String order() {
+		return "orders.jsp";
+	}
+	
 	
 	@RequestMapping("/cart")
 	public String cart(Model model, Principal principal) {

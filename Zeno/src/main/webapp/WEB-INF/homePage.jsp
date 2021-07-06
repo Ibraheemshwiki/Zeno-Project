@@ -55,6 +55,7 @@ https://templatemo.com/tm-549-business-oriented
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="/homeaccessories">Services</a>
+                                    <a class="nav-link tm-nav-link" href="/accessories">Accessories</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="about.html">About</a>
