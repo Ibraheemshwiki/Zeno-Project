@@ -24,7 +24,7 @@
 		</p>
 		<p>
 			<form:label path="password">Password:</form:label>
-			<form:password path="password" />
+			<form:password path="password"/>
 		</p>
 		<p>
 			<form:label path="cpassword">Password Confirmation:</form:label>

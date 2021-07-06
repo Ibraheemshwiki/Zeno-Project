@@ -6,9 +6,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Home Page</title>
 </head>
 <body>
 
+
+
+	<h2>Hi, <c:out value="${thisUser.username}"></c:out></h2>
+	<c:forEach items="${userItems}" var="item">
+		<p>${item.name}</p>
+		<p>${item.price} NIS</p>
+		<a href="#">Delete This Item</a>
+	</c:forEach>
+<br>
+<p>Your Total is: <c:out value="${total}"></c:out> NIS</p>
 </body>
 </html>

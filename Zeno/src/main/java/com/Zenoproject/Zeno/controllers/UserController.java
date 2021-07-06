@@ -1,18 +1,18 @@
 package com.Zenoproject.Zeno.controllers;
 
 import java.security.Principal;
-
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import com.Zenoproject.Zeno.models.Item;
 import com.Zenoproject.Zeno.models.User;
 import com.Zenoproject.Zeno.services.AdminService;
 import com.Zenoproject.Zeno.services.UserService;
@@ -23,7 +23,8 @@ public class UserController {
 	private final UserService userService;
 	private final AdminService adminService;
 	private UserValidator userValidator;
-
+	private double total = 0;
+	
 	public UserController(AdminService adminService, UserService userService, UserValidator userValidator) {
 		this.userService = userService;
 		this.adminService = adminService;
@@ -36,8 +37,7 @@ public class UserController {
 	}
 
 	@PostMapping("/registration")
-	public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model,
-			HttpSession session) {
+	public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
 			return "registrationPage.jsp";
@@ -73,6 +73,33 @@ public class UserController {
 		return "homePage.jsp";
 	}
 	
+	@RequestMapping("/homeaccessories")
+	public String items(Principal principal,Model model) {
+		List<Item> allItems = userService.allItems();
+		model.addAttribute("items", allItems);
+		String username = principal.getName();
+		User u = userService.findByUsername(username);
+		List<Item> items = u.getItems();
+		model.addAttribute("cartSize", items.size());
+		
+		return "homeaccessories.jsp";
+	}
+	
+	@RequestMapping("/add/{id}")
+	public String addToCart(@PathVariable("id")Long id, Model model,Principal principal) {
+		Item item = userService.findItemByid(id);
+		String username = principal.getName();
+		User u = userService.findByUsername(username);
+		u.addItem(item);
+		userService.updateUser(u);
+		System.out.println(u.getItems().get(0).getName());
+		total += item.getPrice();
+		return "redirect:/homeaccessories"; 
+		
+	}
+	
+	
+	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
@@ -90,10 +117,6 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping("/homeaccessories")
-	public String homeaccessories() {
-		return "homeaccessories.jsp";
-	}
 	
 	@RequestMapping("/makeup")
 	public String makeup() {
@@ -111,7 +134,23 @@ public class UserController {
 	}
 	
 	
+	@RequestMapping("/cart")
+	public String cart(Model model, Principal principal) {
+		String username = principal.getName();
+		User u = userService.findByUsername(username);
+		List<Item> items = u.getItems();
+		model.addAttribute("thisUser", u);
+		model.addAttribute("total", total);
+		model.addAttribute("userItems", items);
+		
+		return "cartPage.jsp";
+	}
 	
+	@RequestMapping("/delete/{id}")
+	public String deleteFromCart(@PathVariable("id") Long id, HttpSession session) {
+		Item item = userService.findItemByid(id);
+		return "redirect:/cart";
+	}
 	
 	
 }

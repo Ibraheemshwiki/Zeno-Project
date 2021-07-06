@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -35,7 +34,8 @@ public class User {
 	private String cpassword;
 	@Size(min=10, max=10)
 	private String phone_number;
-
+	private String address;
+	
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -49,21 +49,17 @@ public class User {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "carts", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
 	private List<Item> items;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Cart> carts;
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-	private List<Order> orders;
 
 	@ManyToMany(fetch = FetchType.EAGER)
-
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private List<Role> roles;
 
+	
+	
 	public User() {
 	}
 
@@ -140,28 +136,24 @@ public class User {
 		this.items = items;
 	}
 
-	public List<Cart> getCarts() {
-		return carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
-	}
-
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
 	public List<Role> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void addItem(Item item) {
+		this.items.add(item);
 	}
 
 }

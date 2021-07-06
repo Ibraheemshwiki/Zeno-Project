@@ -1,7 +1,6 @@
 package com.Zenoproject.Zeno.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -22,7 +20,8 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	private int quantity = 0;
+	private boolean ordered = false;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -37,16 +36,14 @@ public class Cart {
 		this.updatedAt = new Date();
 	}
 
-	@OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
-	private List<Order> orders;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
-
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "item_id")
 	private Item item;
+
 
 	public Cart() {
 	}
@@ -75,14 +72,6 @@ public class Cart {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
 	public User getUser() {
 		return user;
 	}
@@ -98,5 +87,18 @@ public class Cart {
 	public void setItem(Item item) {
 		this.item = item;
 	}
+
+	public boolean isOrdered() {
+		return ordered;
+	}
+
+	public void setOrdered(boolean ordered) {
+		this.ordered = ordered;
+	}
+
+	
+
+	
+
 
 }
