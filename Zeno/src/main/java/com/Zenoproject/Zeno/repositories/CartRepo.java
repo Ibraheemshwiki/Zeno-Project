@@ -10,4 +10,6 @@ import com.Zenoproject.Zeno.models.Cart;
 @Repository
 public interface CartRepo extends CrudRepository<Cart, Long> {
 	List<Cart> findAll();
+	List<Cart> findByUser_IdAndOrdered(Long id, boolean ordered);
+	
 }
