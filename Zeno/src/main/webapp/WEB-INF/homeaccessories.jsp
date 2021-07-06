@@ -70,11 +70,11 @@
 				)
 			</p>
 			<div
-				style="width: 90%; height: 100%; display: flex; justify-content: space-between;">
+				style="width: 90%; height: 100%; display: flex; justify-content: space-evenly;">
 				<c:forEach items="${items}" var="item">
 					<div style="width:30%; height: 45%; padding: 15px;">
 						<img alt="Product image" src="/images/${item.id}.jpg"
-							style="width: 100px; height: 100px">
+							style="width: 60%; height: auto;">
 						<p>
 							<c:out value="${item.name}" />
 						</p>
