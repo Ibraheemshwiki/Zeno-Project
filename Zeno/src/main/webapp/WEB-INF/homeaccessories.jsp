@@ -56,7 +56,7 @@
 	<a href = "/cart">Go to Cart</a>
 	<p>
 		Cart(
-		<c:out value="${itemstest}" />
+		<c:out value="${cartSize}" />
 		)
 	</p>
 	<c:forEach items="${items}" var="item">
@@ -71,6 +71,7 @@
 		<c:choose>
 			<c:when test="${item.quantity > 0}">
 				<form action="/add/${item.id}">
+				<input type = "number" name = "quantity" value="1"/>
 					<input type="submit" value="Add to Cart" /> <br />
 			</form>
 			</c:when>

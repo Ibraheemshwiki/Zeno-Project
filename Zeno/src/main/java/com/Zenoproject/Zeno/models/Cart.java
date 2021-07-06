@@ -20,8 +20,8 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private int quantity = 0;
-	private boolean ordered = false;
+	private int quantity;
+	private boolean ordered;
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
@@ -47,7 +47,6 @@ public class Cart {
 
 	public Cart() {
 	}
-
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +93,14 @@ public class Cart {
 
 	public void setOrdered(boolean ordered) {
 		this.ordered = ordered;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	

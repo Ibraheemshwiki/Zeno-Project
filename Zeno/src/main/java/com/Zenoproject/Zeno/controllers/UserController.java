@@ -2,8 +2,10 @@ package com.Zenoproject.Zeno.controllers;
 
 import java.security.Principal;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.Zenoproject.Zeno.models.Cart;
 import com.Zenoproject.Zeno.models.Item;
 import com.Zenoproject.Zeno.models.User;
 import com.Zenoproject.Zeno.services.AdminService;
@@ -86,14 +90,14 @@ public class UserController {
 	}
 	
 	@RequestMapping("/add/{id}")
-	public String addToCart(@PathVariable("id")Long id, Model model,Principal principal) {
+	public String addToCart(@PathVariable("id")Long id, Model model,Principal principal, @RequestParam("quantity")int num, HttpSession session) {
 		Item item = userService.findItemByid(id);
 		String username = principal.getName();
-		User u = userService.findByUsername(username);
-		u.addItem(item);
-		userService.updateUser(u);
-		System.out.println(u.getItems().get(0).getName());
-		total += item.getPrice();
+		User user = userService.findByUsername(username);
+		Cart cart = userService.addItem(user, item, num);
+		session.setAttribute("cart", cart);
+		System.out.println(user.getItems().size());
+		total += (item.getPrice()*cart.getQuantity());
 		return "redirect:/homeaccessories"; 
 		
 	}
@@ -128,19 +132,19 @@ public class UserController {
 	public String cart(Model model, Principal principal) {
 		String username = principal.getName();
 		User u = userService.findByUsername(username);
-		List<Item> items = u.getItems();
+		List<Cart> allCarts = userService.allCarts();
+		model.addAttribute("carts", allCarts);
 		model.addAttribute("thisUser", u);
 		model.addAttribute("total", total);
-		model.addAttribute("userItems", items);
-		
 		return "cartPage.jsp";
 	}
 	
 	@RequestMapping("/delete/{id}")
-	public String deleteFromCart(@PathVariable("id") Long id, HttpSession session) {
-		Item item = userService.findItemByid(id);
+	public String deleteFromCart(@PathVariable("id") Long id) {
+		userService.deleteCart(id);
 		return "redirect:/cart";
 	}
+	
 	
 	
 }

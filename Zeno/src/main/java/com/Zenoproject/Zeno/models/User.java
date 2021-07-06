@@ -152,8 +152,5 @@ public class User {
 		this.address = address;
 	}
 
-	public void addItem(Item item) {
-		this.items.add(item);
-	}
 
 }

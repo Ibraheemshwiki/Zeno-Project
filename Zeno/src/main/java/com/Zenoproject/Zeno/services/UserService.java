@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.Zenoproject.Zeno.models.Cart;
 import com.Zenoproject.Zeno.models.Item;
 import com.Zenoproject.Zeno.models.User;
 import com.Zenoproject.Zeno.repositories.CartRepo;
@@ -52,6 +53,10 @@ public class UserService {
 		return itemRepo.findAll();
 	}
 	
+	public List<Cart> allCarts(){
+		return cartRepo.findAll();
+	}
+	
 	public List<Item> findItemsByCategoryId(Long id){
 		return itemRepo.findByCategoryId(id);
 	}
@@ -61,9 +66,17 @@ public class UserService {
 		return item;
 	}
 	
-	public void updateUser(User u) {
-		userRepo.save(u);
+	public Cart addItem(User user,Item item, int num) {
+		Cart cart = new Cart();
+		cart.setUser(user);
+		cart.setItem(item);
+		cart.setOrdered(false);
+		cart.setQuantity(num);
+		return cartRepo.save(cart);
 	}
 
+	public void deleteCart(Long id) {
+		cartRepo.deleteById(id);
+	}
 	
  }

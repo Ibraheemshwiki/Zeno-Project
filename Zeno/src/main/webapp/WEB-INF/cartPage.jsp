@@ -13,10 +13,11 @@
 
 
 	<h2>Hi, <c:out value="${thisUser.username}"></c:out></h2>
-	<c:forEach items="${userItems}" var="item">
-		<p>${item.name}</p>
-		<p>${item.price} NIS</p>
-		<a href="#">Delete This Item</a>
+	<c:forEach items="${carts}" var="cart">
+		<p>${cart.item.name}</p>
+		<p>${cart.item.price} NIS</p>
+		<p>Quantity: ${cart.quantity}</p>
+		<a href="/delete/${cart.id}">Delete This Item</a>
 	</c:forEach>
 <br>
 <p>Your Total is: <c:out value="${total}"></c:out> NIS</p>
