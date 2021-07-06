@@ -27,14 +27,15 @@ public class UserController {
 	private final UserService userService;
 	private final AdminService adminService;
 	private UserValidator userValidator;
-	private double total = 0;
+	
 	
 	public UserController(AdminService adminService, UserService userService, UserValidator userValidator) {
 		this.userService = userService;
 		this.adminService = adminService;
 		this.userValidator = userValidator;
 	}
-
+	
+	
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user, BindingResult result) {
 		return "registrationPage.jsp";
@@ -72,6 +73,9 @@ public class UserController {
 	
 	@RequestMapping(value = { "/", "/home" })
 	public String home(Principal principal, Model model) {
+		if(principal.getName() == null) {
+			return "redirect:/login";
+		}
 		String username = principal.getName();
 		model.addAttribute("currentUser", userService.findByUsername(username));
 		return "homePage.jsp";
@@ -97,7 +101,6 @@ public class UserController {
 		Cart cart = userService.addItem(user, item, num);
 		session.setAttribute("cart", cart);
 		System.out.println(user.getItems().size());
-		total += (item.getPrice()*cart.getQuantity());
 		return "redirect:/homeaccessories"; 
 		
 	}
@@ -144,6 +147,10 @@ public class UserController {
 		User u = userService.findByUsername(username);
 		List<Cart> allCarts = userService.allCarts();
 		model.addAttribute("carts", allCarts);
+		double	total = 0;
+		for (Cart cart:allCarts) {
+			total += (cart.getQuantity()* cart.getItem().getPrice());
+		}
 		model.addAttribute("thisUser", u);
 		model.addAttribute("total", total);
 		return "cartPage.jsp";
@@ -154,7 +161,13 @@ public class UserController {
 		userService.deleteCart(id);
 		return "redirect:/cart";
 	}
-	
-	
+	@PostMapping("/confirm")
+	public String confirmOrders(@RequestParam("carts") List<Cart> carts) {
+		for (Cart cart:carts) {
+			cart.setOrdered(true);
+			
+		}
+		return "redirect:/thanks";
+	}
 	
 }

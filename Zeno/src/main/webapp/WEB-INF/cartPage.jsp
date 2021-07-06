@@ -21,5 +21,10 @@
 	</c:forEach>
 <br>
 <p>Your Total is: <c:out value="${total}"></c:out> NIS</p>
+
+<form action = "/confirm" method = "post">
+<input type = "hidden" name = "carts" value = "${carts}"/>
+<input type = "submit" value = "Confirm Order"/>
+</form>
 </body>
 </html>

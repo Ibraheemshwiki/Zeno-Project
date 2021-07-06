@@ -79,4 +79,11 @@ public class UserService {
 		cartRepo.deleteById(id);
 	}
 	
+	public List<Cart> getCartByUserAndOrdered(Long id, boolean o){
+		return cartRepo.findByUser_IdAndOrdered(id, o);
+	}
+	public Cart updateCart(Cart cart) {
+		return cartRepo.save(cart);
+	}
+	
  }
