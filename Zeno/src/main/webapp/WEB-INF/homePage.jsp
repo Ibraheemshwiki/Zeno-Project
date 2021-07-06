@@ -23,14 +23,11 @@ https://templatemo.com/tm-549-business-oriented
 
 -->
 <body>
-    <div id="parallax-1" class="parallax-window" data-parallax="scroll" data-image-src="images/zeno5.jpg">
+    <div id="parallax-1" class="parallax-window" data-parallax="scroll" data-image-src="images/zeno6.jpg">
         <div class="container-fluid">   
             <div class="row">
                 <div class="col-12">
-                    <div class="tm-logo">
-                        <i class="fas fa-industry fa-5x mr-5"></i>
-                        <span class="text-uppercase tm-logo-text">zeno</span>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -54,14 +51,13 @@ https://templatemo.com/tm-549-business-oriented
                                     <a class="nav-link tm-nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="/homeaccessories">Services</a>
                                     <a class="nav-link tm-nav-link" href="/accessories">Accessories</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="about.html">About</a>
+                                    <a class="nav-link tm-nav-link" href=/homeaccessories>Home Accessories</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
+                                    <a class="nav-link tm-nav-link" href="/makeup">Makeup</a>
                                 </li>
                             </ul>                            
                         </div>                        
@@ -75,77 +71,67 @@ https://templatemo.com/tm-549-business-oriented
         <div class="row mb-6">
             <section class="col-lg-6 mb-lg-0 mb-5">
                 <div class="tm-intro">
-                    <h3 class="tm-title-gray mb-4">What is a Business Oriented Website?</h3>
+                    <h3 class="tm-title-gray mb-4">More About ZENO</h3>
                     <hr class="mb-5 tm-hr">
-                    <p class="mb-5">Header is a parallax background just like in <a href="https://templatemo.com/tm-547-real-dynamic" target="_blank">Real Dynamic design</a> on TemplateMo. Business Oriented HTML Template is specifically designed for your corporate website.</p>
-                    <p class="mb-5">You can download and use this template for your commercial purpose. Please do not re-distribute the template ZIP file on any template collection website.</p>
-                    <img src="img/biz-oriented-1.jpg" alt="Company Background Image" class="img-fluid tm-mb-3">
+                    <p class="mb-5">ZENO is a store that mixes different needs for a girl, which offers the best quality in the best prices. Moreover, ZENO deals with big well known companies such as STEVEMADDEN , ANNE KLEIN, FOX HOME , NAMAAN and JOHN RICHARD</p>
+                    <img src="images/zeno9.jpg" alt="Company Background Image" class="img-fluid tm-mb-3">
                 </div>
             </section>
             <section class="col-lg-6">
-                <h3 class="tm-title-gray mb-4">New Focused Strategies</h3>
+                <h3 class="tm-title-gray mb-4">ZENO's Vision</h3>	
                 <hr class="mb-5 tm-hr">
+                  <p class="mb-5">  What Zeno looks for is to open more branches to cover all the Palestinian cities. Moreover, to deal with more known brands to sell them in the best prices.</p>
                 <div class="tm-strategy-box mb-5">
-                    <img src="images/zeno6.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Maecenas molestie varius ipsum</h4>
-                        <p class="tm-strategy-text">Quisque consectetur ipsum justo, sed posuere massa pretium nec. In scelerisque, odio et maximus feugiat, nisl libero porta turpis, quis imperdiet odio.</p>
-                    </div>
+                    <img src="images/zeno.jpg" alt="Image" class="img-fluid tm-strategy-img">
+                  
                 </div>
-                <div class="tm-strategy-box mb-5">
-                    <img src="img/strategy-2.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Etiam consequat placerat convallis</h4>
-                        <p class="tm-strategy-text">Fusce non diam vel diam egestas accumsan quis aliquam metus. Nulla porta ullamcorper mauris maximus feugiat. Donec ac tincidunt dui.</p>
-                    </div>
-                </div>
-                <div class="tm-strategy-box mb-5">
-                    <img src="img/strategy-3.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Aenean varius velit eu ligula</h4>
-                        <p class="tm-strategy-text">Suspendisse gravida, ipsum a gravida euismod, metus enim hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas tempus risus ipsum.</p>
-                    </div>
-                </div>
+             
+              
             </section>
+                </div>
         </div>
         <!-- Services -->
         <div class="row mb-7">
             <div class="col-lg-4 col-md-6">
                 <div class="tm-bg-gray tm-box">
                     <div class="text-center mb-3">
-                        <i class="fas fa-cloud-sun fa-5x p-5"></i>
+                        <img alt="" src="images/zeno19.jpg" style="width:280px; border-radius: 18px">
                     </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Suspendisse at nunc leo</h4>
-                    <p>Phasellus malesuada aliquam arcu, et ultricies metus scelerisque id. Curabitur finibus ornare blandit. Donec a luctus nulla. Vivamus ac felis sapien.</p>
+                    <h4 class="tm-text-primary tm-h3 mb-5">Accessories</h4>
+                    <p>Dealing with European accessories brands and buying it in a perfect prices for the costumer, is the thing that made zeno a unique accessories store in Ramallah</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="tm-bg-gray tm-box">
                     <div class="text-center mb-3">
-                        <i class="fas fa-spa fa-5x p-5"></i>
-                    </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Etiam viverra elit vel efficitur</h4>
-                    <p>Nunc ultrices imperdiet orci, a ultrices orci luctus vel. Etiam consequat placerat convallis. Donec consequat consectetur est, eget pretium nisl.</p>
+                       <img alt="" src="images/fox.jpg" style="width:280px; border-radius: 18px">
+                    </div> <br><br><br>
+                    <h4 class="tm-text-primary tm-h3 mb-5">Home Accessories</h4>
+                    <p>FoxHome is one of the biggest home accessories companies in the world. However, cooperation with such a company will definitly make ZENO unique. </p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <img src="img/biz-oriented-2.jpg" alt="Image" class="img-fluid">
-                <div class="tm-box tm-box-s">
-                    <p class="tm-mb-5">Suspendisse gravida, ipsum a gravida euismod, metus enim hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas tempus risus ipsum.</p>
+             <div class="col-lg-4 col-md-6">
+                <div class="tm-bg-gray tm-box">
+                    <div class="text-center mb-3">
+                       <img alt="" src="images/flormar.jpg" style="width:280px; border-radius: 18px">
+                    </div><br>
+                    <h4 class="tm-text-primary tm-h3 mb-5">Makeup & SkinCare</h4>
+                    <p>Flormar and Laline are two well known companies for makeup and skincare, both of them are a part of Zeno too!! which is abolutley awesome!</p>
                 </div>
             </div>
+           
         </div>
     </div>
 
     <div id="parallax-2" class="parallax-window parallax-window-2" data-parallax="scroll"
-        data-image-src="images/zeno6.jpg">
+        data-image-src="images/zeno5.jpg">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="tm-overlay tm-bg-white">
-                        <h4 class="tm-text-primary mb-5">Parallax Background Section</h4>
-                        <p class="mb-5">Suspendisse gravida, ipsum a gravida euismod, metus enim hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas tempus risus ipsum.</p>
-                        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                        <h4 class="tm-text-primary mb-5">Shop in a Style</h4>
+                        <p class="mb-5">If you can't stop thinking about it, BUY IT !</p>
+                       
                     </div>
                 </div>
             </div>
@@ -155,11 +141,11 @@ https://templatemo.com/tm-549-business-oriented
     <footer class="container-fluid">
         <div class="row">
             <p class="col-lg-9 col-md-8 mb-5 mb-md-0">
-                Copyright &copy; 2020 <span class="tm-text-primary">Business Oriented</span>
-                - designed by <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-link-primary">TemplateMo</a>
+                Copyright &copy; 2021 <span class="tm-text-primary">AXSOS ACADEMY</span>
+                - designed by  <span class="tm-text-primary">ZENO TEAM</span>
             </p>
             <div class="col-lg-3 col-md-4 text-right">
-                <a rel="nofollow" target="_blank" href="https://fb.com/templatemo" class="tm-social-link">
+                <a rel="nofollow" target="_blank" href="https://www.facebook.com/zenoramallah" class="tm-social-link">
                     <i class="fab fa-facebook fa-2x tm-social-icon"></i>
                 </a>
                 <a href="https://twitter.com" class="tm-social-link">
