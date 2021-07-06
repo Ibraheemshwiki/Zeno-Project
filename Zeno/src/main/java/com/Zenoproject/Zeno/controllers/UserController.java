@@ -42,7 +42,7 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "registrationPage.jsp";
 		}
-		userService.saveUserWithAdminRole(user);
+		userService.saveWithUserRole(user);
 		return "redirect:/login";
 
 	}
@@ -98,6 +98,16 @@ public class UserController {
 	@RequestMapping("/makeup")
 	public String makeup() {
 		return "makeup.jsp";
+	}
+	
+	@RequestMapping("/admin/page")
+	public String admin() {
+		return "admin.jsp";
+	}
+	
+	@RequestMapping("/orders")
+	public String order() {
+		return "orders.jsp";
 	}
 	
 	
