@@ -87,8 +87,8 @@ public class UserController {
 		model.addAttribute("items", allItems);
 		String username = principal.getName();
 		User u = userService.findByUsername(username);
-		List<Item> items = u.getItems();
-		model.addAttribute("cartSize", items.size());
+		List<Cart> allCarts = userService.getCartByUserAndOrdered(u.getId(), false);
+		model.addAttribute("cartSize", allCarts.size());
 		
 		return "homeaccessories.jsp";
 	}
@@ -145,7 +145,7 @@ public class UserController {
 	public String cart(Model model, Principal principal) {
 		String username = principal.getName();
 		User u = userService.findByUsername(username);
-		List<Cart> allCarts = userService.allCarts();
+		List<Cart> allCarts = userService.getCartByUserAndOrdered(u.getId(), false);
 		model.addAttribute("carts", allCarts);
 		double	total = 0;
 		for (Cart cart:allCarts) {
@@ -161,13 +161,21 @@ public class UserController {
 		userService.deleteCart(id);
 		return "redirect:/cart";
 	}
-	@PostMapping("/confirm")
-	public String confirmOrders(@RequestParam("carts") List<Cart> carts) {
-		for (Cart cart:carts) {
+	@RequestMapping("/confirm")
+	public String confirmOrders( Principal principal) {
+		String username = principal.getName();
+		User user = userService.findByUsername(username);
+		List<Cart> allCarts = userService.getCartByUserAndOrdered(user.getId(), false);
+		for (Cart cart:allCarts) {
 			cart.setOrdered(true);
-			
+			userService.updateCart(cart);
 		}
 		return "redirect:/thanks";
+	}
+	
+	@RequestMapping("/thanks")
+	public String thanks() {
+		return "thanks.jsp";
 	}
 	
 }
