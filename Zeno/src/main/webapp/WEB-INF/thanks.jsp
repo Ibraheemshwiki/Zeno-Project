@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<script >
+alert("Your order is successfuly submited");
+location.replace("/home")
+</script>
 </body>
 </html>

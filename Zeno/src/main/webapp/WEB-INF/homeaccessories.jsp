@@ -27,10 +27,6 @@
 
 
 	<div class="tm-nav-container-outer">
-		<form id="logoutForm" method="POST" action="/logout">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input type="submit" value="Logout!" />
-		</form>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
@@ -54,6 +50,9 @@
 
 								<li class="nav-item"><a class="nav-link tm-nav-link"
 									href="/makeup">Makeup & SkinCare</a></li>
+									<li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="/logout">Log Out</a>
+                                </li>
 							</ul>
 						</div>
 					</nav>

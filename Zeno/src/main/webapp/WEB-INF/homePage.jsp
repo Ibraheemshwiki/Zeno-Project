@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Business Oriented CSS Template</title>
+    <title>Home Page</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
     <link href="fontawesome/css/all.min.css" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
@@ -32,11 +32,7 @@ https://templatemo.com/tm-549-business-oriented
             </div>
         </div>
     </div>
-    <div class="tm-nav-container-outer">
-         <form id="logoutForm" method="POST" action="/logout">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" /> <input type="submit" value="Logout!" />
-	</form>
+   
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -58,6 +54,9 @@ https://templatemo.com/tm-549-business-oriented
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="/makeup">Makeup</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="/logout">Log Out</a>
                                 </li>
                             </ul>                            
                         </div>                        

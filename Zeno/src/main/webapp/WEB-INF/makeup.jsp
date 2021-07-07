@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Make up Page</title>
 </head>
 <body>
 	<div style="display: flex;">
@@ -23,11 +23,6 @@
 		</div>
 	</div>
 
-	<div class="tm-nav-container-outer">
-		<form id="logoutForm" method="POST" action="/logout">
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" /> <input type="submit" value="Logout!" />
-		</form>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
@@ -51,6 +46,8 @@
 
 								<li class="nav-item active"><a class="nav-link tm-nav-link"
 									href="/makeup">Makeup & SkinCare</a></li>
+								<li class="nav-item"><a class="nav-link tm-nav-link"
+									href="/logout">Log Out</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -66,7 +63,7 @@
 					)
 				</p>
 				<div
-					style="width: 100%; height: 100%; display:flex; justify-content: space-evenly;">
+					style="width: 100%; height: 100%; display: flex; justify-content: space-evenly;">
 					<c:forEach items="${items}" var="item">
 						<div style="width: 30%; height: 45%; padding: 15px;">
 							<img alt="Product image" src="/images/${item.id}.jpg"
